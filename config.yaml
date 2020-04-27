@@ -1,0 +1,7 @@
+scraper:
+  start_url: 'https://ja.wikipedia.org/wiki/大阪駅'
+  max_distance: 5
+  waiting_time: 1
+visualizer:
+  dpi: 10
+
