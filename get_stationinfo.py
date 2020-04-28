@@ -6,7 +6,21 @@ from urllib.request import urlopen
 from urllib.error   import HTTPError, URLError
 
 def dms2deg(degree, minute, second):
-    return degree + minute/60 + second/3600
+    """
+    Transform DMS-notation into DEG-notation.
+    
+    Parameters
+    ----------
+    degree : int
+    minute : int
+    second : float
+    
+    Returns
+    -------
+    deg : float
+    """
+    deg = degree + minute/60 + second/3600
+    return deg
 
 def get_stationinfo(article_url, wiki_url='https://ja.wikipedia.org'):
     """
@@ -14,12 +28,24 @@ def get_stationinfo(article_url, wiki_url='https://ja.wikipedia.org'):
     
     Parameters
     ----------
-    article_url : string
-
+    article_url : str
+    
+    wiki_url : str, optional
+    
     Returns
     -------
     station_info : dict
     
+    Examples
+    --------
+    >>> get_stationinfo('/wiki/鹿児島駅')
+    {'name' : '鹿児島駅'
+    ,'lat'  : 31.601497222
+    ,'lng'  : 130.56311388
+    ,'passengers' : 1597
+    ,'next_article' : ['/wiki/鹿児島中央駅'
+                      ,'/wiki/竜ヶ水'
+                      ,'/wiki/桜島浅橋通停留場']}                      
     """
     station_name = None
     latitude     = None
